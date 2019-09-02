@@ -8,14 +8,13 @@
   <meta name="viewport" content="width=device-width">
 
   <link rel="stylesheet" href="node_modules/video.js/dist/video-js.css">
-  <script src="node_modules/video.js/dist/ie8/videojs-ie8.js"></script>
 </head>
 
 <body>
   <video id="player" width=600 height=300 class="video-js vjs-default-skin" controls></video>
-  <video id="live-player" width=600 height=300 class="video-js vjs-default-skin" controls></video>
   <script src="node_modules/video.js/dist/video.js"></script>
   <script src="node_modules/dashjs/dist/dash.all.debug.js"></script>
+  <script src="node_modules/dashjs/dist/dash.mss.debug.js"></script>
   <script src="dist/videojs-dash.js"></script>
 
   <script>
@@ -26,22 +25,15 @@
             limitBitrateByPortal: true
           }
         }
-      }),
-      livePlayer = videojs('live-player');
+      })
 
     player.ready(function() {
       player.src({
-        src: 'http://dash.edgesuite.net/akamai/bbb_30fps/bbb_30fps.mpd',
-        type: 'application/dash+xml'
+        src: 'https://clvod.itworkscdn.net/bloombergvod/smil:itwfcdn/bloomberg/620888-7MBV757bJJW26g3.smil/Manifest',
+        type: 'application/vnd.ms-sstr+xml'
       });
     });
 
-    livePlayer.ready(function(){
-      livePlayer.src({
-        src: 'http://vm2.dashif.org/livesim/mup_30/testpic_2s/Manifest.mpd',
-        type: 'application/dash+xml'
-      });
-    });
   </script>
 </body>
 

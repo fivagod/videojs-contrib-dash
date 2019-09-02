@@ -413,7 +413,7 @@ videojs.DashSourceHandler = function() {
 };
 
 videojs.DashSourceHandler.canPlayType = function(type) {
-  const dashTypeRE = /^application\/dash\+xml/i;
+  const dashTypeRE = /^application\/(dash|vnd.ms-sstr)\+xml/i;
 
   if (dashTypeRE.test(type)) {
     return 'probably';
